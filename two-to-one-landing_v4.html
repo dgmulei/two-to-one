@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two to One | AI Coaching & Custom Solutions for Helpers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: #3d3128;
+            background: linear-gradient(180deg, #f9f6f1 0%, #f2ede6 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            padding: 48px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .logo-area {
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #5c4a3a;
+            letter-spacing: 0.02em;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #8a7565;
+            margin-top: 4px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        .header-button {
+            background: #7a5f47;
+            color: #f9f6f1;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        .header-button:hover {
+            background: #5c4a3a;
+        }
+
+        .hero {
+            padding: 120px 0 100px;
+        }
+
+        .hero-ratio {
+            font-family: 'Outfit', sans-serif;
+            font-size: 96px;
+            font-weight: 700;
+            color: #5c4a3a;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+
+        .hero-statement {
+            font-size: 24px;
+            color: #3d3128;
+            max-width: 720px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .hero-statement strong {
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(92, 74, 58, 0.12);
+        }
+
+        .section-header {
+            font-size: 42px;
+            font-weight: 700;
+            color: #5c4a3a;
+            margin-bottom: 48px;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .text-block {
+            font-size: 20px;
+            color: #3d3128;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .text-indent {
+            font-size: 19px;
+            color: #6b5748;
+            font-style: italic;
+            margin-left: 40px;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .emphasis {
+            font-weight: 600;
+            margin-top: 40px;
+        }
+
+        .process-section {
+            margin-top: 60px;
+        }
+
+        .process-intro {
+            font-size: 42px;
+            font-weight: 700;
+            color: #5c4a3a;
+            margin-bottom: 64px;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .step {
+            margin-bottom: 72px;
+            padding-left: 80px;
+            position: relative;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-num {
+            font-family: 'Outfit', sans-serif;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #a89080;
+            letter-spacing: 0.08em;
+        }
+
+        .step-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #5c4a3a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            letter-spacing: -0.015em;
+        }
+
+        .step-desc {
+            font-size: 19px;
+            color: #4a3d2f;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tools {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .tool {
+            padding: 8px 18px;
+            background: #7a5f47;
+            color: #f9f6f1;
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .extras-section {
+            padding: 60px 0 80px;
+            border-top: 1px solid rgba(92, 74, 58, 0.12);
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .extra-item {
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #5c4a3a;
+            text-align: left;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .accordion-trigger:hover {
+            color: #7a5f47;
+        }
+
+        .arrow {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-content.open {
+            max-height: 5000px;
+        }
+
+        .principle-list {
+            padding-top: 32px;
+        }
+
+        .principle {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .principle:last-child {
+            margin-bottom: 0;
+        }
+
+        .principle-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #a89080;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .principle-content {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #3d3128;
+        }
+
+        .principle-content strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .principle-content p {
+            margin: 0;
+            color: #6b5748;
+        }
+
+        .about-content {
+            padding-top: 32px;
+        }
+
+        .about-content .text-block {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .about-content .text-block.emphasis {
+            margin-top: 0;
+        }
+
+        .prompt-button {
+            width: 100%;
+            background: #7a5f47;
+            color: #f9f6f1;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .prompt-button:hover {
+            background: #5c4a3a;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(61, 49, 40, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: #f9f6f1;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(61, 49, 40, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #8a7565;
+            cursor: pointer;
+            line-height: 1;
+            padding: 8px;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #5c4a3a;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #5c4a3a;
+            margin-bottom: 24px;
+        }
+
+        .modal-content {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #3d3128;
+            margin-bottom: 32px;
+        }
+
+        .modal-content p {
+            margin-bottom: 16px;
+        }
+
+        .modal-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .copy-button {
+            width: 100%;
+            background: #7a5f47;
+            color: #f9f6f1;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #5c4a3a;
+        }
+
+        .copy-feedback {
+            text-align: center;
+            margin-top: 12px;
+            color: #7a5f47;
+            font-size: 15px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+        }
+
+        footer {
+            padding: 60px 0 80px;
+            border-top: 1px solid rgba(92, 74, 58, 0.12);
+            text-align: center;
+            font-size: 14px;
+            color: #8a7565;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #7a5f47;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #5c4a3a;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-button {
+                align-self: flex-start;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero-ratio {
+                font-size: 64px;
+            }
+
+            .hero-statement {
+                font-size: 20px;
+            }
+
+            .section-header,
+            .process-intro {
+                font-size: 32px;
+            }
+
+            .text-block {
+                font-size: 18px;
+            }
+
+            .text-indent {
+                font-size: 17px;
+                margin-left: 24px;
+            }
+
+            .step {
+                padding-left: 0;
+                margin-bottom: 56px;
+            }
+
+            .step-num {
+                position: static;
+                margin-bottom: 12px;
+            }
+
+            .step-title {
+                font-size: 24px;
+            }
+
+            .step-desc {
+                font-size: 17px;
+            }
+
+            .extras-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .accordion-trigger {
+                font-size: 20px;
+            }
+
+            .modal {
+                padding: 32px 24px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .modal-content {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <div class="logo">Two to One</div>
+                <div class="tagline">AI Coaching & Custom Solutions</div>
+            </div>
+            <button class="header-button" id="promptButton">
+                Starter prompt →
+            </button>
+        </header>
+
+        <section class="hero">
+            <h1 class="hero-ratio">2:1</h1>
+            <p class="hero-statement">Over and over, helpers report spending <strong>two</strong> hours on administrative burden for every <strong>one</strong> hour face-to-face with the people they serve. We want to flip that ratio.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">You are a Helper.</h2>
+            <p class="text-block">You are an advocate, an educator, a counselor, a guide, a consultant.</p>
+            <p class="text-block">You work face-to-face with the people who need your expertise.</p>
+            <p class="text-block">Something's telling you "AI" could help you help more people.</p>
+            <p class="text-indent">(Or get back some joy in doing the work)</p>
+            <p class="text-indent">(Or maybe just get a bit more rest—that's okay too!)</p>
+            <p class="text-block">You don't know where to start.</p>
+            <p class="text-block emphasis">We're here to help you help.</p>
+        </section>
+
+        <section class="section">
+            <div class="process-section">
+                <h2 class="process-intro">The 2:1 Process</h2>
+                
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3 class="step-title">Start with an AI Assistant. That's the first tool in your workshop.</h3>
+                    <p class="step-desc">We'll shop for one together. ChatGPT, Claude, and Gemini each do different things well. We'll test-drive all three to see which fits your work needs.</p>
+                    <div class="tools">
+                        <span class="tool">ChatGPT</span>
+                        <span class="tool">Claude</span>
+                        <span class="tool">Gemini</span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3 class="step-title">Commit to 10 hours.</h3>
+                    <p class="step-desc">We'll work with you to make those hours count. This is where you'll discover what's possible.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3 class="step-title">Then we tackle what's missing.</h3>
+                    <p class="step-desc">Custom solutions if you need them. Deeper coaching if that helps more.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="extras-section">
+            <div class="extras-grid">
+                <div class="extra-item">
+                    <button class="accordion-trigger" id="principlesToggle">
+                        The How and The Why
+                        <span class="arrow">↓</span>
+                    </button>
+                    <div class="accordion-content" id="principlesContent">
+                        <div class="principle-list">
+                            <div class="principle">
+                                <span class="principle-num">1</span>
+                                <div class="principle-content">
+                                    <strong>You control the solutions.</strong>
+                                    <p>No one needs to tell you what you want or need.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">2</span>
+                                <div class="principle-content">
+                                    <strong>Start with tools you can access right now. Build only when you hit walls.</strong>
+                                    <p>You can probably do more than you think with a $20 subscription.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">3</span>
+                                <div class="principle-content">
+                                    <strong>Better is good.</strong>
+                                    <p>Incremental progress beats waiting for perfect solutions.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">4</span>
+                                <div class="principle-content">
+                                    <strong>Think horizontal, not vertical.</strong>
+                                    <p>AI isn't an oracle that knows everything or a servant that does what you say. It's a collaborator.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">5</span>
+                                <div class="principle-content">
+                                    <strong>Be skeptical. Test everything.</strong>
+                                    <p>Learning what these tools can't do well (or are pretending to do) is as important as learning what they can. Pack your bullshit detector for the trip. And make sure it has a fresh set of batteries.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">6</span>
+                                <div class="principle-content">
+                                    <strong>If you're in a hole, stop digging.</strong>
+                                    <p>We have no stake in whether you use generative AI tools or not. Sometimes the lesson learned is that the current state of the tech isn't there—and may never be. Don't use those features to do that task.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">7</span>
+                                <div class="principle-content">
+                                    <strong>Learn by making. Measure progress in sawdust.</strong>
+                                    <p>Try making the tools you wish you could have. And mark your progress the way a rookie woodworker does: in sawdust made, not pieces sold.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">8</span>
+                                <div class="principle-content">
+                                    <strong>This thing is moving fast!</strong>
+                                    <p>New products and features appear daily. You can't track them all and shouldn't try. It's our job to keep up, not yours.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">9</span>
+                                <div class="principle-content">
+                                    <strong>We've seen this before.</strong>
+                                    <p>The mouse. The web. Mobile. This is the next chapter in a tech story we've been living through together. Each leap removed a barrier between you and what you needed to know. Now you don't even need to know where the data lives or what tool to use—you just need to ask it the right way.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">10</span>
+                                <div class="principle-content">
+                                    <strong>You're not a "user." Your calling is not a "use case."</strong>
+                                    <p>Those terms exist to make it easier to extract value from you. We're not interested in spending our days that way.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">11</span>
+                                <div class="principle-content">
+                                    <strong>It's not about "AI."</strong>
+                                    <p>The work you do—and how and why you do it—is what matters. The technology is invisible when it's working and we're using it the right way.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">12</span>
+                                <div class="principle-content">
+                                    <strong>You don't "scale."</strong>
+                                    <p>Relationship-intensive, personalized work changes lives. Period.</p>
+                                </div>
+                            </div>
+                            <div class="principle">
+                                <span class="principle-num">13</span>
+                                <div class="principle-content">
+                                    <strong>You get to decide what to do with the capacity you create.</strong>
+                                    <p>Software bought from above squeezes more from the ones below. Tools and workflows you build and control let you choose: serve more people, breathe easier, go home on time. Your call.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="extra-item">
+                    <button class="accordion-trigger" id="aboutToggle">
+                        The Who
+                        <span class="arrow">↓</span>
+                    </button>
+                    <div class="accordion-content" id="aboutContent">
+                        <div class="about-content">
+                            <p class="text-block emphasis">We're Jude and Dave.</p>
+                            <p class="text-block">Jude spent 25 years in marketing—co-founding companies, leading data teams, translating complexity into business value. Dave has built his career around language—screenwriting, playwriting, teaching, and producing.</p>
+                            <p class="text-block">When LLMs emerged, we saw tools that could think with us, not for us.</p>
+                            <p class="text-block">We're mission-driven. (Try as you might, you can't take the Wesleyan out of us.) But we're also practical. We've created work, scaled businesses, managed teams, shipped products. We get things done.</p>
+                            <p class="text-block">Two to One exists because we think helpers should expect more. You deserve partners who respect your work, understand your constraints, and succeed when you do.</p>
+                            <p class="text-block emphasis">Let's go.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <button class="modal-close" id="modalClose">×</button>
+                <h3 class="modal-title">Drop this into Claude, ChatGPT, or Gemini to begin a chat</h3>
+                <div class="modal-content">
+                    <p>I do relationship-intensive work with people who need my expertise.</p>
+                    <p>You're my collaborator. You don't know what I need better than I do. I'd like you to help me discover what's possible and build capacity to do my work better, faster, and smarter.</p>
+                    <p>As we work together I will control the solutions. I need you to help me explore options, test approaches, decide.</p>
+                    <p>Please meet me where I am and use my language.</p>
+                    <p>Help me experiment and learn by making. Be direct about limitations and failures. Keep explanations grounded in my actual work—not "AI solutions."</p>
+                    <p>I'd like you to encourage my skepticism. I'm interested in discovering what you can't do. I know you have a tendency to pretend to do things you can't out of a desire to please. Don't do that. I want you to help me test and question the work we do in this thread.</p>
+                    <p>If something we're trying to do simply isn't working, I'd like you to help me stop using it.</p>
+                </div>
+                <button class="copy-button" id="copyButton">Copy to clipboard</button>
+                <div class="copy-feedback" id="copyFeedback">Copied!</div>
+            </div>
+        </div>
+
+        <footer>
+            Drop us a line.<br>
+            <a href="mailto:jude@two-to-one.org">jude@two-to-one.org</a> | <a href="mailto:dave@two-to-one.org">dave@two-to-one.org</a>
+        </footer>
+    </div>
+
+    <script>
+        // Principles accordion
+        const principlesToggle = document.getElementById('principlesToggle');
+        const principlesContent = document.getElementById('principlesContent');
+        const principlesArrow = principlesToggle.querySelector('.arrow');
+
+        principlesToggle.addEventListener('click', () => {
+            const isOpen = principlesContent.classList.contains('open');
+            principlesContent.classList.toggle('open');
+            principlesArrow.textContent = isOpen ? '↓' : '↑';
+        });
+
+        // About accordion
+        const aboutToggle = document.getElementById('aboutToggle');
+        const aboutContent = document.getElementById('aboutContent');
+        const aboutArrow = aboutToggle.querySelector('.arrow');
+
+        aboutToggle.addEventListener('click', () => {
+            const isOpen = aboutContent.classList.contains('open');
+            aboutContent.classList.toggle('open');
+            aboutArrow.textContent = isOpen ? '↓' : '↑';
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('modalOverlay');
+        const promptButton = document.getElementById('promptButton');
+        const modalClose = document.getElementById('modalClose');
+        const copyButton = document.getElementById('copyButton');
+        const copyFeedback = document.getElementById('copyFeedback');
+
+        promptButton.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        copyButton.addEventListener('click', () => {
+            const promptText = `I do relationship-intensive work with people who need my expertise.
+
+You're my collaborator. You don't know what I need better than I do. I'd like you to help me discover what's possible and build capacity to do my work better, faster, and smarter.
+
+As we work together I will control the solutions. I need you to help me explore options, test approaches, decide.
+
+Please meet me where I am and use my language.
+
+Help me experiment and learn by making. Be direct about limitations and failures. Keep explanations grounded in my actual work—not "AI solutions."
+
+I'd like you to encourage my skepticism. I'm interested in discovering what you can't do. I know you have a tendency to pretend to do things you can't out of a desire to please. Don't do that. I want you to help me test and question the work we do in this thread.
+
+If something we're trying to do simply isn't working, I'd like you to help me stop using it.`;
+
+            navigator.clipboard.writeText(promptText).then(() => {
+                copyFeedback.classList.add('show');
+                setTimeout(() => {
+                    copyFeedback.classList.remove('show');
+                }, 2000);
+            });
+        });
+
+        // Keyboard escape to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
