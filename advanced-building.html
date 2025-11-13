@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Building | Two to One</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: #3d3128;
+            background: linear-gradient(180deg, #f9f6f1 0%, #f2ede6 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            padding: 48px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #5c4a3a;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: #7a5f47;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #5c4a3a;
+        }
+
+        .hero {
+            padding: 80px 0 100px;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: #5c4a3a;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+
+        .hero-intro {
+            font-size: 24px;
+            color: #3d3128;
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 800px;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(92, 74, 58, 0.12);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #5c4a3a;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .criterion {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 28px;
+            border-radius: 8px;
+            border-left: 4px solid #7a5f47;
+        }
+
+        .criterion-text {
+            font-size: 18px;
+            color: #3d3128;
+            line-height: 1.6;
+        }
+
+        .capability-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .capability-list li {
+            font-size: 17px;
+            color: #4a3d2f;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .capability-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #7a5f47;
+            font-weight: 600;
+        }
+
+        .text-block {
+            font-size: 19px;
+            color: #3d3128;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .text-block strong {
+            font-weight: 600;
+            color: #5c4a3a;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .example-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(92, 74, 58, 0.1);
+        }
+
+        .example-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(92, 74, 58, 0.15);
+        }
+
+        .example-thumbnail {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #5c4a3a 0%, #7a5f47 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(249, 246, 241, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #5c4a3a;
+            transition: transform 0.3s;
+        }
+
+        .example-card:hover .play-icon {
+            transform: scale(1.1);
+        }
+
+        .example-content {
+            padding: 24px;
+        }
+
+        .example-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #5c4a3a;
+            margin-bottom: 8px;
+        }
+
+        .example-description {
+            font-size: 16px;
+            color: #6b5748;
+            line-height: 1.5;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(61, 49, 40, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, visibility 0.4s;
+            z-index: 1000;
+            padding: 40px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #f9f6f1;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 960px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+            padding: 48px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 36px;
+            color: #8a7565;
+            cursor: pointer;
+            line-height: 1;
+            padding: 8px;
+            transition: color 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: #5c4a3a;
+            transform: scale(1.1);
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #5c4a3a;
+            margin-bottom: 12px;
+            padding-right: 40px;
+        }
+
+        .modal-description {
+            font-size: 18px;
+            color: #6b5748;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #3d3128;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-text {
+            font-size: 28px;
+            color: #5c4a3a;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #7a5f47;
+            color: #f9f6f1;
+            padding: 16px 40px;
+            border-radius: 32px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #5c4a3a;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-intro {
+                font-size: 20px;
+            }
+
+            .criteria-grid,
+            .examples-grid,
+            .capability-list {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 32px 24px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">Two to One</a>
+            <a href="index.html" class="back-link">← Back to home</a>
+        </header>
+
+        <section class="hero">
+            <h1 class="hero-title">Advanced Building</h1>
+            <p class="hero-intro">You've put in the hours with Claude, ChatGPT, or Gemini. You know what you want to build. The consumer tools can't get you there.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">This might be for you if</h2>
+            <div class="criteria-grid">
+                <div class="criterion">
+                    <p class="criterion-text">You've tried vibecoding but hit walls or struggled with results</p>
+                </div>
+                <div class="criterion">
+                    <p class="criterion-text">You have a proof-of-concept or demo you want to bring to life</p>
+                </div>
+                <div class="criterion">
+                    <p class="criterion-text">You need something deployed and accessible, not just designed</p>
+                </div>
+                <div class="criterion">
+                    <p class="criterion-text">You learn best by making things</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What we do</h2>
+            <ul class="capability-list">
+                <li>Deploy working web apps with custom chat interfaces</li>
+                <li>Wrangle knowledge bases into LLM-optimized pipelines</li>
+                <li>Build with Anthropic and OpenAI APIs</li>
+                <li>Handle structured and unstructured data</li>
+                <li>Implement custom CAG and RAG architectures</li>
+                <li>Problem-solve code, prompts, content design</li>
+                <li>Stand up databases and troubleshoot infrastructure</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What we don't do</h2>
+            <p class="text-block">We're not full-stack developers building production-scale applications. If you need enterprise software with a development team right now, we're not your guys.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">How we work</h2>
+            <p class="text-block">For the right project, we build together. You bring your domain expertise, an idea, and enthusiasm. We help you translate your vision into working software, leveraging AI as our development partner.</p>
+            <p class="text-block">Think: collaborative problem-solving to help you get unstuck when you're close but not quite there.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">What we've built</h2>
+            <div class="examples-grid">
+                <div class="example-card" onclick="openModal('cylyndyr')">
+                    <div class="example-thumbnail">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="example-content">
+                        <h3 class="example-title">Cylyndyr</h3>
+                        <p class="example-description">Custom AI assistant for portfolio management and investment analysis</p>
+                    </div>
+                </div>
+
+                <div class="example-card" onclick="openModal('grade-escape')">
+                    <div class="example-thumbnail">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="example-content">
+                        <h3 class="example-title">Grade Escape</h3>
+                        <p class="example-description">Automated grading with teacher review and student challenge protocols</p>
+                    </div>
+                </div>
+
+                <div class="example-card" onclick="openModal('ibd-navigator')">
+                    <div class="example-thumbnail">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="example-content">
+                        <h3 class="example-title">IBD Nutrition Navigator</h3>
+                        <p class="example-description">Structured recipe database queries with therapeutic protocol enforcement</p>
+                    </div>
+                </div>
+
+                <div class="example-card" onclick="openModal('teachers-tutor')">
+                    <div class="example-thumbnail">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="example-content">
+                        <h3 class="example-title">Teacher's Tutor</h3>
+                        <p class="example-description">AI assistant embodying a teacher's voice, curriculum, and methodology</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <p class="cta-text">If this sounds like where you are</p>
+            <a href="mailto:jude@two-to-one.org,dave@two-to-one.org" class="cta-button">Let's talk</a>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="video-container" id="videoContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const examples = {
+            'cylyndyr': {
+                title: 'Cylyndyr',
+                description: 'Custom AI assistant for portfolio management and investment analysis with real-time data integration.',
+                videoId: 'YOUR_LOOM_VIDEO_ID_1' // Replace with actual Loom video ID
+            },
+            'grade-escape': {
+                title: 'Grade Escape',
+                description: 'Automated grading system that preserves teacher judgment while handling open-ended responses. Includes student challenge protocol that turns AI limitations into learning opportunities.',
+                videoId: 'YOUR_LOOM_VIDEO_ID_2' // Replace with actual Loom video ID
+            },
+            'ibd-navigator': {
+                title: 'IBD Nutrition Navigator',
+                description: 'Delivers expert nutritional guidance for IBD patients by querying structured recipe databases while enforcing therapeutic protocols. Built for Nutritional Therapy for IBD.',
+                videoId: 'YOUR_LOOM_VIDEO_ID_3' // Replace with actual Loom video ID
+            },
+            'teachers-tutor': {
+                title: "Teacher's Tutor",
+                description: 'AI assistant that embodies a specific teacher\'s voice, curriculum materials, and pedagogical approach. Students get consistent guidance that feels like working with their actual teacher.',
+                videoId: 'YOUR_LOOM_VIDEO_ID_4' // Replace with actual Loom video ID
+            }
+        };
+
+        function openModal(exampleId) {
+            const example = examples[exampleId];
+            const modal = document.getElementById('modalOverlay');
+            const title = document.getElementById('modalTitle');
+            const description = document.getElementById('modalDescription');
+            const videoContainer = document.getElementById('videoContainer');
+
+            title.textContent = example.title;
+            description.textContent = example.description;
+            
+            // Replace YOUR_LOOM_VIDEO_ID with actual Loom video IDs
+            videoContainer.innerHTML = `
+                <iframe 
+                    src="https://www.loom.com/embed/${example.videoId}?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" 
+                    frameborder="0" 
+                    webkitallowfullscreen 
+                    mozallowfullscreen 
+                    allowfullscreen>
+                </iframe>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event && event.target.closest('.modal-content')) return;
+            
+            const modal = document.getElementById('modalOverlay');
+            const videoContainer = document.getElementById('videoContainer');
+            
+            modal.classList.remove('active');
+            videoContainer.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
