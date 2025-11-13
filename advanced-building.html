@@ -367,7 +367,7 @@
         </section>
 
         <section class="section">
-            <h2 class="section-title">This might be for you if</h2>
+            <h2 class="section-title">This might be for you if...</h2>
             <div class="criteria-grid">
                 <div class="criterion">
                     <p class="criterion-text">You've tried vibecoding but hit walls or struggled with results</p>
@@ -391,63 +391,43 @@
                 <li>Wrangle knowledge bases into LLM-optimized pipelines</li>
                 <li>Build with Anthropic and OpenAI APIs</li>
                 <li>Handle structured and unstructured data</li>
-                <li>Implement custom CAG and RAG architectures</li>
+                <li>Implement custom CAG (Context-Augmented Generation) and RAG (Retrieval-Augmented Generation) architectures</li>
                 <li>Problem-solve code, prompts, content design</li>
                 <li>Stand up databases and troubleshoot infrastructure</li>
             </ul>
         </section>
 
         <section class="section">
-            <h2 class="section-title">What we don't do</h2>
+            <h2 class="section-title">What we don't</h2>
             <p class="text-block">We're not full-stack developers building production-scale applications. If you need enterprise software with a development team right now, we're not your guys.</p>
         </section>
 
         <section class="section">
-            <h2 class="section-title">How we work</h2>
-            <p class="text-block">For the right project, we build together. You bring your domain expertise, an idea, and enthusiasm. We help you translate your vision into working software, leveraging AI as our development partner.</p>
+            <h2 class="section-title">How we build</h2>
+            <p class="text-block">For the right project, we build together. You bring an idea, your domain expertise, and enthusiasm. We help you translate your vision into working software, leveraging AI as our development partner.</p>
             <p class="text-block">Think: collaborative problem-solving to help you get unstuck when you're close but not quite there.</p>
         </section>
 
         <section class="section">
-            <h2 class="section-title">What we've built</h2>
+            <h2 class="section-title">Built together</h2>
             <div class="examples-grid">
+                <div class="example-card" onclick="openModal('medicare-clear')">
+                    <div class="example-thumbnail">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="example-content">
+                        <h3 class="example-title">Medicare Clear | MA</h3>
+                        <p class="example-description">Pre-appointment Medicare education for counselors</p>
+                    </div>
+                </div>
+
                 <div class="example-card" onclick="openModal('cylyndyr')">
                     <div class="example-thumbnail">
                         <div class="play-icon">▶</div>
                     </div>
                     <div class="example-content">
                         <h3 class="example-title">Cylyndyr</h3>
-                        <p class="example-description">Custom AI assistant for portfolio management and investment analysis</p>
-                    </div>
-                </div>
-
-                <div class="example-card" onclick="openModal('grade-escape')">
-                    <div class="example-thumbnail">
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="example-content">
-                        <h3 class="example-title">Grade Escape</h3>
-                        <p class="example-description">Automated grading with teacher review and student challenge protocols</p>
-                    </div>
-                </div>
-
-                <div class="example-card" onclick="openModal('ibd-navigator')">
-                    <div class="example-thumbnail">
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="example-content">
-                        <h3 class="example-title">IBD Nutrition Navigator</h3>
-                        <p class="example-description">Structured recipe database queries with therapeutic protocol enforcement</p>
-                    </div>
-                </div>
-
-                <div class="example-card" onclick="openModal('teachers-tutor')">
-                    <div class="example-thumbnail">
-                        <div class="play-icon">▶</div>
-                    </div>
-                    <div class="example-content">
-                        <h3 class="example-title">Teacher's Tutor</h3>
-                        <p class="example-description">AI assistant embodying a teacher's voice, curriculum, and methodology</p>
+                        <p class="example-description">Natural language database queries</p>
                     </div>
                 </div>
             </div>
@@ -471,25 +451,17 @@
 
     <script>
         const examples = {
+            'medicare-clear': {
+                title: 'Medicare Clear | MA',
+                subheader: 'Pre-appointment Medicare education for counselors',
+                description: 'Pre-appointment education platform for Medicare counselors during Annual Enrollment Period. Beneficiaries complete comprehensive Medicare/MassHealth education before appointments, freeing counselors to focus entire sessions on personalized decision support instead of teaching basics.',
+                videoId: '23052cc160c94da9aab0bdfde0fedfe4'
+            },
             'cylyndyr': {
                 title: 'Cylyndyr',
-                description: 'Custom AI assistant for portfolio management and investment analysis with real-time data integration.',
-                videoId: 'YOUR_LOOM_VIDEO_ID_1' // Replace with actual Loom video ID
-            },
-            'grade-escape': {
-                title: 'Grade Escape',
-                description: 'Automated grading system that preserves teacher judgment while handling open-ended responses. Includes student challenge protocol that turns AI limitations into learning opportunities.',
-                videoId: 'YOUR_LOOM_VIDEO_ID_2' // Replace with actual Loom video ID
-            },
-            'ibd-navigator': {
-                title: 'IBD Nutrition Navigator',
-                description: 'Delivers expert nutritional guidance for IBD patients by querying structured recipe databases while enforcing therapeutic protocols. Built for Nutritional Therapy for IBD.',
-                videoId: 'YOUR_LOOM_VIDEO_ID_3' // Replace with actual Loom video ID
-            },
-            'teachers-tutor': {
-                title: "Teacher's Tutor",
-                description: 'AI assistant that embodies a specific teacher\'s voice, curriculum materials, and pedagogical approach. Students get consistent guidance that feels like working with their actual teacher.',
-                videoId: 'YOUR_LOOM_VIDEO_ID_4' // Replace with actual Loom video ID
+                subheader: 'Natural language database queries',
+                description: 'Natural language interface for database queries. Consultants and advocates query enterprise databases using plain English instead of SQL—no waiting for data analysts, no learning database syntax. Eliminates the request-wait-revise cycle that delays client work. Built for helpers who need data insights to serve their clients but are bottlenecked by technical barriers to database access.',
+                videoId: '60deeb3dd4ad42e091aaaadfcda23a60'
             }
         };
 
